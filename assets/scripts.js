@@ -98,11 +98,16 @@ cardComparison();
 //analyzing whether raise or fold was correct or wrong
 let count = 0;
 let longestStreak = 0;
+let result = document.getElementById("displayResult");
+result.addEventListener('animationend', function() {
+  result.classList.remove('flashit');
+});
 //user clicks raise button
 let raiseButton = document.getElementById("raiseBTN")
 raiseButton.addEventListener("click", function(){
   if (table[position].includes(completeHand) || table[position].includes(completeHand2)) {
-    document.getElementById("displayResult").innerHTML = "Correct!";
+    result.innerHTML = "Correct!";
+    result.classList.add('flashit');
     count++;
     if (count > longestStreak) {
       longestStreak = count;
@@ -110,7 +115,8 @@ raiseButton.addEventListener("click", function(){
     document.getElementById("winStreak").innerHTML = "Count: " + count;
     document.getElementById("longestStreak").innerHTML = "Longest Win Streak: " + longestStreak;
   } else {
-    document.getElementById("displayResult").innerHTML = "Wrong!";
+    result.innerHTML = "Wrong!";
+    result.classList.add('flashit');
     count = 0;
     document.getElementById("winStreak").innerHTML = "";
   }
@@ -120,7 +126,8 @@ raiseButton.addEventListener("click", function(){
 let foldButton = document.getElementById("foldBTN")
 foldButton.addEventListener("click", function(){
   if (!table[position].includes(completeHand) && !table[position].includes(completeHand2)) {
-    document.getElementById("displayResult").innerHTML = "Correct!";
+    result.innerHTML = "Correct!";
+    result.classList.add('flashit');
     count++;
     if (count > longestStreak) {
       longestStreak = count;
@@ -128,7 +135,8 @@ foldButton.addEventListener("click", function(){
     document.getElementById("winStreak").innerHTML = "Count: " + count;
     document.getElementById("longestStreak").innerHTML = "Longest Win Streak: " + longestStreak;
   } else {
-    document.getElementById("displayResult").innerHTML = "Wrong!";
+    result.innerHTML = "Wrong!";
+    result.classList.add('flashit');
     count = 0;
     document.getElementById("winStreak").innerHTML = "";
   }
