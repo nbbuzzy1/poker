@@ -19,6 +19,22 @@ img {
   border-radius: 10px;
 }
 
+.button {
+  margin: .5rem;
+}
+
+button {
+  border: none;
+  color: white;
+  background: #03699B;
+  padding: 1rem; 
+}
+
+button:hover {
+  color: #F58300;
+  font-weight: bold;
+}
+
 #title {
   background: #03699B;
   color: #F58300;
@@ -30,50 +46,33 @@ img {
 #position {
   margin-bottom: 1rem;
   font-size:1.3rem;
-  font-weight: bold;
 }
 
 #displayPosition {
   margin-bottom: 1rem;
   font-size: 2rem;
-  font-weight: bold;
 }
 
 #cards {
   margin-bottom: 1rem;
 }
 
-.button {
-  margin: .5rem;
-}
-
-button {
-  border: none;
-  color: white;
-  background: #03699B;
-  padding: 1rem;
-  
-}
-
-button:hover {
-  color: #F58300;
-  font-weight: bold;
-}
-
 #displayResult {
   margin-bottom: 1rem;
   transition: 1s ease-in-out;
 }
+
 #winStreak {
   margin-bottom: 1rem;
 }
+
 #longeststreak {
   margin-bottom: 1rem;
 }
 
 @media (max-width: 400px) {
   img {
-    height: 125px;
-    width: 75px;
+    height: 150px;
+    width: 90px;
   }
 }
