@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Raise | Fold</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/styles.css" />
+    <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css"/>
+  </head>
+  <body onload="getCardOne(), getCardTwo(), showPosition()">
+    <div id="title">Raise or Fold?</div>
+    <div id="position">Position: </div>
+    <div id="displayPosition"></div>
+    <div id="cards">
+      <span id="displayCardOne"></span>
+      <span id="displayCardTwo"></span>
+    </div>
+    <div class="button">
+      <span>
+        <button id="raiseBTN">Raise</button>
+        <button id="foldBTN">Fold</button>
+      </span>
+    </div>
+    <div class="button">
+      <button id="startOver">Start Over</button>
+    </div>
+    <p id="displayResult"></p>
+    <p id="winStreak"></p>
+    <p id="longestStreak"></p>
+    <script src="assets/scripts.js"></script>
+  </body>
+</html>
