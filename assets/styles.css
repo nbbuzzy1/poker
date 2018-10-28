@@ -69,7 +69,7 @@ button:hover {
 }
 
 #displayResult.flashit {
-  animation: flashit 1.5s;
+  animation: flashit 3.5s;
 }
 
 @keyframes flashit {
