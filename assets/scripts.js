@@ -1,3 +1,4 @@
+
 //full deck
 let deck = [
   'AS.jpg',
@@ -75,6 +76,9 @@ let positionName = ['Under the Gun', 'Under the Gun +1', 'Under the Gun +2', 'Lo
 const showPosition = () => {
   document.getElementById("displayPosition").innerHTML = positionName[position];
 }
+getCardOne()
+getCardTwo()
+showPosition()
 
 //set up complete hand for comparison purposes
 let suited = '';
@@ -102,43 +106,41 @@ let result = document.getElementById("displayResult");
 result.addEventListener('animationend', function() {
   result.classList.remove('flashit');
 });
+const correct = () => {
+  result.innerHTML = "Correct!";
+  result.classList.add('flashit');
+  count++;
+  if (count > longestStreak) {
+    longestStreak = count;
+  }
+  document.getElementById("winStreak").innerHTML = "Count: " + count;
+  document.getElementById("longestStreak").innerHTML = "Longest Win Streak: " + longestStreak;
+}
+const wrong = () => {
+  result.innerHTML = "Wrong!";
+  result.classList.add('flashit');
+  count = 0;
+  document.getElementById("winStreak").innerHTML = "";
+}
+
 //user clicks raise button
 let raiseButton = document.getElementById("raiseBTN")
 raiseButton.addEventListener("click", function(){
   if (table[position].includes(completeHand) || table[position].includes(completeHand2)) {
-    result.innerHTML = "Correct!";
-    result.classList.add('flashit');
-    count++;
-    if (count > longestStreak) {
-      longestStreak = count;
-    }
-    document.getElementById("winStreak").innerHTML = "Count: " + count;
-    document.getElementById("longestStreak").innerHTML = "Longest Win Streak: " + longestStreak;
+    correct();
   } else {
-    result.innerHTML = "Wrong!";
-    result.classList.add('flashit');
-    count = 0;
-    document.getElementById("winStreak").innerHTML = "";
+    wrong();
   }
   newGame();
 });
+
 //user clicks fold button
 let foldButton = document.getElementById("foldBTN")
 foldButton.addEventListener("click", function(){
   if (!table[position].includes(completeHand) && !table[position].includes(completeHand2)) {
-    result.innerHTML = "Correct!";
-    result.classList.add('flashit');
-    count++;
-    if (count > longestStreak) {
-      longestStreak = count;
-    }
-    document.getElementById("winStreak").innerHTML = "Count: " + count;
-    document.getElementById("longestStreak").innerHTML = "Longest Win Streak: " + longestStreak;
+    correct();
   } else {
-    result.innerHTML = "Wrong!";
-    result.classList.add('flashit');
-    count = 0;
-    document.getElementById("winStreak").innerHTML = "";
+    wrong();
   }
   newGame();
 });
@@ -155,7 +157,7 @@ startOver.addEventListener("click", function() {
 })
 
 //new game
-function newGame() {
+const newGame = () => {
   deck = [
     'AS.jpg',
     'AC.jpg',
@@ -227,7 +229,7 @@ function newGame() {
 };
 
 //the correct raising hands for each position in the array
-let table = [
+const table = [
   [
     'AA', 
     'AKs', 
@@ -641,4 +643,7 @@ let table = [
     '22'
   ]
 ]
+
+
+
 
