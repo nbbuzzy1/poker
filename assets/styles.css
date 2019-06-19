@@ -34,6 +34,7 @@ button {
 button:hover {
   color: #F58300;
   font-weight: bold;
+  cursor: pointer;
 }
 
 #title {
